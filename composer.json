@@ -1,7 +1,7 @@
 {
     "name": "artack/mx-api-bundle",
     "type": "symfony-bundle",
-    "keywords": ["api"],
+    "keywords": ["api", "ARTACK"],
     "homepage": "http://www.artack.ch",
     "license": "MIT",
     "authors": [
