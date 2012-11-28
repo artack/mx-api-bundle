@@ -22,8 +22,14 @@ class ArtackMxApiExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         
-        var_dump($config);
-
+        $container->setParameter('artack_mx_api.host', $config['host']);
+        $container->setParameter('artack_mx_api.use_ssl', $config['use_ssl']);
+        $container->setParameter('artack_mx_api.version', $config['version']);
+        $container->setParameter('artack_mx_api.customer_key', $config['customer_key']);
+        $container->setParameter('artack_mx_api.api_key', $config['api_key']);
+        $container->setParameter('artack_mx_api.api_secret', $config['api_secret']);
+        $container->setParameter('artack_mx_api.format', $config['format']);
+        
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         
         if (true === $config['enabled']) {

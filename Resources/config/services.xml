@@ -1,10 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="artack.mxapi.class">Artack\MxApi\ArtackMxApi</parameter>
+        <parameter key="artack.mxapi.dispatcher.class">Artack\MxApi\Dispatcher</parameter>
+        <parameter key="artack.mxapi.configuration.class">Artack\MxApi\Configuration</parameter>
+        <parameter key="artack.mxapi.headers.class">Artack\MxApi\Header\Headers</parameter>
+        
+        <parameter key="artack.mxapi.request.url.class">Artack\MxApi\Request\Url</parameter>
+        <parameter key="artack.mxapi.request.call.class">Artack\MxApi\Request\Call</parameter>
+        
+        <parameter key="artack.mxapi.randomizer.class">Artack\MxApi\Randomizer\PseudoRandomizer</parameter>
+        <parameter key="artack.mxapi.authenticator.class">Artack\MxApi\Authenticator\Authenticator</parameter>
+        <parameter key="artack.mxapi.hasher.class">Artack\MxApi\Hasher\HmacHasher</parameter>
+    </parameters>
 
-<root>
-    
-</root>
+    <services>
+        
+        <service id="artack.mxapi.configuration" class="%artack.mxapi.configuration.class%" public="false">
+            <argument>%artack_mx_api.host%</argument>
+            <argument>%artack_mx_api.use_ssl%</argument>
+            <argument>%artack_mx_api.version%</argument>
+            <argument>%artack_mx_api.customer_key%</argument>
+            <argument>%artack_mx_api.api_key%</argument>
+            <argument>%artack_mx_api.api_secret%</argument>
+            <argument>%artack_mx_api.format%</argument>
+        </service>
+        
+        <service id="artack.mxapi.request.url" class="%artack.mxapi.request.url.class%" public="false">
+            <argument>%artack_mx_api.host%</argument>
+            <argument>%artack_mx_api.use_ssl%</argument>
+            <argument>%artack_mx_api.version%</argument>
+        </service>
+        <service id="artack.mxapi.request.call" class="%artack.mxapi.request.call.class%" public="false">
+            <argument type="service" id="artack.mxapi.request.url" />
+        </service>
+        
+        <service id="artack.mxapi.dispatcher" class="%artack.mxapi.dispatcher.class%" public="false"></service>
+        <service id="artack.mxapi.randomizer" class="%artack.mxapi.randomizer.class%" public="false"></service>
+        <service id="artack.mxapi.authenticator" class="%artack.mxapi.authenticator.class%" public="false"></service>
+        <service id="artack.mxapi.hasher" class="%artack.mxapi.hasher.class%" public="false"></service>
+        <service id="artack.mxapi.headers" class="%artack.mxapi.headers.class%" public="false"></service>
+        
+        <service id="artack.mxapi.dispatcher" class="%artack.mxapi.dispatcher.class%" public="false">
+            <argument type="service" id="artack.mxapi.configuration" />
+            <argument type="service" id="artack.mxapi.randomizer" />
+            <argument type="service" id="artack.mxapi.authenticator" />
+            <argument type="service" id="artack.mxapi.hasher" />
+            <argument type="service" id="artack.mxapi.headers" />
+        </service>
+        
+        <service id="artack.mxapi" class="%artack.mxapi.class%" public="true">
+            <argument type="service" id="artack.mxapi.dispatcher" />
+            <argument type="service" id="artack.mxapi.request.call" />
+        </service>
+
+    </services>
+</container>

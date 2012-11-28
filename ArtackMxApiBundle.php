@@ -1,10 +1,10 @@
 <?php
 
-namespace ARTACK\MXAPIBundle;
+namespace Artack\MxApiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ARTACKMXAPIBundle extends Bundle
+class ArtackMxApiBundle extends Bundle
 {
     
 }

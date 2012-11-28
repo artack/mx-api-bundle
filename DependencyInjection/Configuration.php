@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('asdfadsf');
+        $rootNode = $treeBuilder->root('artack_mx_api');
         
         $rootNode
             ->children()
@@ -26,6 +26,24 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                 ->end()
                 ->scalarNode('host')
+                    ->isRequired()
+                ->end()
+                ->booleanNode('use_ssl')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('version')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('customer_key')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('api_key')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('api_secret')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('format')
                     ->isRequired()
                 ->end()
             ->end()
