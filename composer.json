@@ -20,8 +20,8 @@
     },
 
     "autoload": {
-        "psr-0": { "ARTACK\\MXAPIBundle": "" }
+        "psr-0": { "Artack\\MxApiBundle": "" }
     },
 
-    "target-dir": "ARTACK/MXAPIBundle"
+    "target-dir": "Artack/MxApiBundle"
 }

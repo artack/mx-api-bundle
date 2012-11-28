@@ -1,6 +1,6 @@
 <?php
 
-namespace ARTACK\MXAPIBundle\DependencyInjection;
+namespace Artack\MxApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,12 +18,20 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('artack_mxapi');
-
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
-
+        $rootNode = $treeBuilder->root('asdfadsf');
+        
+        $rootNode
+            ->children()
+                ->booleanNode('enabled')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('host')
+                    ->isRequired()
+                ->end()
+            ->end()
+            ;
+        
+        
         return $treeBuilder;
     }
 }

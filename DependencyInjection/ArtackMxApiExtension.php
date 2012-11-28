@@ -1,6 +1,6 @@
 <?php
 
-namespace ARTACK\MXAPIBundle\DependencyInjection;
+namespace Artack\MxApiBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class ARTACKMXAPIExtension extends Extension
+class ArtackMxApiExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -21,8 +21,13 @@ class ARTACKMXAPIExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+        
+        var_dump($config);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-//        $loader->load('navbar.yml');
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        
+        if (true === $config['enabled']) {
+            $loader->load('services.xml');
+        }
     }
 }
