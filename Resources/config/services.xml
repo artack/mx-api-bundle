@@ -17,7 +17,7 @@
         <parameter key="artack.mxapi.hasher.class">Artack\MxApi\Hasher\HmacHasher</parameter>
         
         <parameter key="buzz.message.request.class">Buzz\Message\Request</parameter>
-        <parameter key="buzz.message.response.class">Buzz\Message\Response</parameter>
+        <parameter key="buzz.message.response.class">Artack\MxApi\Response\Response</parameter>
         <parameter key="buzz.client.curl.class">Buzz\Client\Curl</parameter>
     </parameters>
 
