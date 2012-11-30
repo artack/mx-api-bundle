@@ -17,7 +17,7 @@
         <parameter key="artack.mxapi.hasher.class">Artack\MxApi\Hasher\HmacHasher</parameter>
         
         <parameter key="buzz.message.request.class">Buzz\Message\Request</parameter>
-        <parameter key="buzz.message.response.class">Artack\MxApi\Response\Response</parameter>
+        <parameter key="buzz.message.response.class">Artack\MxApi\Response\NetworkResponse</parameter>
         <parameter key="buzz.client.curl.class">Buzz\Client\Curl</parameter>
     </parameters>
 
@@ -47,7 +47,7 @@
         </service>
         
         <service id="artack.mxapi.dispatcher" class="%artack.mxapi.dispatcher.class%" public="false"></service>
-        <service id="artack.mxapi.randomizer" class="%artack.mxapi.randomizer.class%" public="false"></service>
+        <service id="artack.mxapi.randomizer" class="%artack.mxapi.randomizer.class%" public="true"></service>
         <service id="artack.mxapi.authenticator" class="%artack.mxapi.authenticator.class%" public="false"></service>
         <service id="artack.mxapi.hasher" class="%artack.mxapi.hasher.class%" public="false"></service>
         <service id="artack.mxapi.headers" class="%artack.mxapi.headers.class%" public="false"></service>
