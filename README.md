@@ -1,20 +1,63 @@
-artack/mx-api-bundle
+ARTACK/mx-api-bundle
 ====================
 
-The MXAPIBundle adds support of using the MXAPI for mailXpert newsletter software.
+The ARTACK mailXpert API Bundle adds support of using the API for mailXpert newsletter software.
 
 Documentation
 -------------
 
-The documentation is stored in the `Resources/doc/index.md`
-file in this bundle:
-
-[Read the Documentation](https://github.com/ARTACK/MXAPIBundle/blob/master/Resources/doc/index.md)
+The documentation is currently unavailable because of the recent changes to the api.
 
 Installation
 ------------
 
-All the installation instructions are located in [installation](https://github.com/ARTACK/MXAPIBundle/blob/master/Resources/doc/installation).
+### Step 1: Download ARTACK/mx-api-bundle using composer
+
+Add ArtackMxApi in your composer.json:
+
+```js
+{
+    "require": {
+        "artack/mx-api-bundle": "*"
+    }
+}
+```
+
+Now tell composer to download the bundle by running the command:
+
+``` bash
+$ php composer.phar update artack/mx-api-bundle
+```
+
+### Step 2: Enable the bundle
+
+Enable the bundle in the kernel:
+
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Artack\MxApiBundle\ArtackMxApiBundle(),
+        // ...
+    );
+}
+```
+
+### Step 3: Start using the mailXpert API Service
+
+Start using the public service as described below. You can make use of the fluent interface.
+
+``` php
+/* @var $mxapi \Artack\MxApi\ArtackMxApi */
+$mxapi = $this->get('artack.mxapi');
+
+$response = $mxapi->setPath('Contact')->get();
+
+```
 
 License
 -------
