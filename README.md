@@ -56,7 +56,6 @@ Start using the public service as described below. You can make use of the fluen
 $mxapi = $this->get('artack.mxapi');
 
 $response = $mxapi->setPath('Contact')->get();
-
 ```
 
 License
