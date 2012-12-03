@@ -1,7 +1,7 @@
 {
     "name": "artack/mx-api-bundle",
     "type": "symfony-bundle",
-    "keywords": ["api"],
+    "keywords": ["api", "ARTACK"],
     "homepage": "http://www.artack.ch",
     "license": "MIT",
     "authors": [
@@ -16,12 +16,14 @@
     
     "require": {
         "php": ">=5.3.2",
+        "symfony/serializer": ">=2.0,<2.3-dev",
+        "kriswallsmith/buzz": "dev-master",
         "artack/mx-api": "dev-develop"
     },
 
     "autoload": {
-        "psr-0": { "ARTACK\\MXAPIBundle": "" }
+        "psr-0": { "Artack\\MxApiBundle": "" }
     },
 
-    "target-dir": "ARTACK/MXAPIBundle"
+    "target-dir": "Artack/MxApiBundle"
 }
