@@ -23,7 +23,7 @@
 
     <services>
         
-        <service id="artack.mxapi.configuration" class="%artack.mxapi.configuration.class%" public="false">
+        <service id="artack.mxapi.configuration" class="%artack.mxapi.configuration.class%">
             <argument>%artack_mx_api.host%</argument>
             <argument>%artack_mx_api.use_ssl%</argument>
             <argument>%artack_mx_api.verify_peer%</argument>
