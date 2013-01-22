@@ -1,5 +1,6 @@
 {
     "name": "artack/mx-api-bundle",
+    "description": "Bundle for mailXpert API",
     "type": "symfony-bundle",
     "keywords": ["api", "ARTACK"],
     "homepage": "http://www.artack.ch",
@@ -15,8 +16,8 @@
     "require": {
         "php": ">=5.3.2",
         "symfony/serializer": ">=2.0,<2.3-dev",
-        "kriswallsmith/buzz": "dev-master",
-        "artack/mx-api": "dev-develop"
+        "kriswallsmith/buzz": "<=0.7",
+        "artack/mx-api": "~0.1"
     },
 
     "autoload": {
