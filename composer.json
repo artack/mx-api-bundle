@@ -24,5 +24,11 @@
         "psr-0": { "Artack\\MxApiBundle": "" }
     },
 
-    "target-dir": "Artack/MxApiBundle"
+    "target-dir": "Artack/MxApiBundle",
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2.x-dev"
+        }
+    }
 }
