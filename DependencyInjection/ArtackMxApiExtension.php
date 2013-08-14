@@ -31,6 +31,7 @@ class ArtackMxApiExtension extends Extension
         $container->setParameter($this->getAlias().'.api_key', $config['api_key']);
         $container->setParameter($this->getAlias().'.api_secret', $config['api_secret']);
         $container->setParameter($this->getAlias().'.format', $config['format']);
+        $container->setParameter($this->getAlias().'.timeout', $config['timeout']);
         
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         

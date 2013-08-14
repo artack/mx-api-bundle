@@ -33,6 +33,7 @@
             <argument>%artack_mx_api.api_secret%</argument>
             <argument>%artack_mx_api.default_version%</argument>
             <argument>%artack_mx_api.default_language%</argument>
+            <argument>%artack_mx_api.timeout%</argument>
         </service>
         
         <service id="artack.mxapi.request.url" class="%artack.mxapi.request.url.class%" public="false">

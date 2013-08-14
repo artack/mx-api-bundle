@@ -52,6 +52,9 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('format')
                     ->isRequired()
                 ->end()
+                ->scalarNode('timeout')
+                    ->isRequired()
+                ->end()
             ->end()
             ;
         
